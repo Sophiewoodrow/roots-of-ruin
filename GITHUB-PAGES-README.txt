@@ -11,5 +11,5 @@ Recommended publishing steps:
 5. Select the branch containing these files and the /(root) folder, then Save.
 
 The Play Game buttons open game/index.html. The Construct runtime, its assets,
-the branded loading screen, and the embedded YouTube videos are included or
-linked correctly for GitHub Pages project hosting.
+and the embedded YouTube videos are included or linked correctly for GitHub
+Pages project hosting.
