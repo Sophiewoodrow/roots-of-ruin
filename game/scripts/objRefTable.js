@@ -452,6 +452,7 @@ self.C3_JsPropNameTable = [
 	{BWDie1: 0},
 	{Sprite18: 0},
 	{ExitToMenu: 0},
+	{Sprite19: 0},
 	{Family1: 0},
 	{NextSpawnX: 0},
 	{NextSpawnY: 0},
@@ -792,5 +793,6 @@ self.InstanceType = {
 	BWDie1: class extends self.ISpriteInstance {},
 	Sprite18: class extends self.ISpriteInstance {},
 	ExitToMenu: class extends self.ISpriteInstance {},
+	Sprite19: class extends self.ISpriteInstance {},
 	Family1: class extends self.ISpriteInstance {}
 }
