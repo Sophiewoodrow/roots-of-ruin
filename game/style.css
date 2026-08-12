@@ -10,6 +10,100 @@ body {
 	color: white;
 }
 
+/* Branded cover shown until Construct reports that its runtime is ready. */
+.game-loading-screen {
+	position: fixed;
+	z-index: 10000;
+	inset: 0;
+	display: grid;
+	place-items: center;
+	background: #020b07 url("../assets/hero-canopy.webp") center / cover no-repeat;
+	opacity: 1;
+	visibility: visible;
+	transition: opacity 600ms ease, visibility 0s linear 600ms;
+	isolation: isolate;
+}
+
+.game-loading-screen::before,
+.game-loading-screen__shade {
+	content: "";
+	position: absolute;
+	inset: 0;
+}
+
+.game-loading-screen::before {
+	z-index: 0;
+	background: linear-gradient(180deg, rgba(1, 7, 5, .48), rgba(1, 9, 6, .86));
+}
+
+.game-loading-screen__shade {
+	z-index: 1;
+	background: radial-gradient(circle at 50% 47%, rgba(68, 112, 43, .22), transparent 45%);
+}
+
+.game-loading-screen__content {
+	position: relative;
+	z-index: 2;
+	width: min(96vw, 1120px);
+	display: grid;
+	justify-items: center;
+	text-align: center;
+	filter: drop-shadow(0 12px 28px rgba(0, 0, 0, .72));
+}
+
+.game-loading-screen__logo {
+	width: 100%;
+	height: auto;
+	margin-bottom: -44.6%;
+	object-fit: contain;
+	image-rendering: auto;
+}
+
+.game-loading-screen__text {
+	margin: clamp(1.25rem, 3vh, 2rem) 0 .9rem;
+	color: #f0d477;
+	font: 700 clamp(1rem, 2.4vw, 1.35rem)/1.2 Georgia, "Times New Roman", serif;
+	letter-spacing: .14em;
+	text-transform: uppercase;
+	text-shadow: 0 3px 10px #000;
+}
+
+.game-loading-screen__indicator {
+	display: flex;
+	align-items: center;
+	gap: .65rem;
+	height: 24px;
+}
+
+.game-loading-screen__indicator span {
+	width: 10px;
+	height: 10px;
+	border: 1px solid #ffe398;
+	background: #d99b24;
+	box-shadow: 0 0 12px #ec7c25;
+	transform: rotate(45deg);
+	animation: ruin-loader-pulse 1.15s ease-in-out infinite;
+}
+
+.game-loading-screen__indicator span:nth-child(2) { animation-delay: 150ms; }
+.game-loading-screen__indicator span:nth-child(3) { animation-delay: 300ms; }
+
+.game-loading-screen.is-ready {
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+}
+
+@keyframes ruin-loader-pulse {
+	0%, 100% { opacity: .3; transform: rotate(45deg) scale(.72); }
+	50% { opacity: 1; transform: rotate(45deg) scale(1.12); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.game-loading-screen { transition: none; }
+	.game-loading-screen__indicator span { animation: none; opacity: .9; }
+}
+
 input[type="file"] {
 	color: black;
 }
